@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8" />
+
+		<title>Todo testing</title>
+
+		<script>
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+
+			script.setAttribute("id", "sap-ui-bootstrap");
+			script.setAttribute("data-sap-ui-theme", "sap_bluecrystal");
+			script.setAttribute("data-sap-ui-libs", "sap.m");
+			script.setAttribute("data-sap-ui-resourceroots", '{ "fis.eim.todotesting": "./" }');
+
+			if (window.location.hostname.indexOf("cheesecake") > -1 || window.location.hostname.indexOf("w6d-web") > -1) {
+				script.src = "https://sapui5.hana.ondemand.com/resources/sap-ui-core.js";
+			} else {
+				script.src = "resources/sap-ui-core.js";
+			}
+
+			script.onload = function () {
+				new sap.m.Shell({
+					app : new sap.ui.core.ComponentContainer({
+						name : "fis.eim.todotesting"
+					})
+				}).placeAt("content");
+			}
+
+			document.getElementsByTagName("head")[0].appendChild(script);
+		</script>
+
+	</head>
+	<body class="sapUiBody"  role="application">
+		<div id="content"></div>
+	</body>
+</html>
