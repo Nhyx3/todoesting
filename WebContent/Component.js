@@ -1,7 +1,5 @@
 jQuery.sap.declare("fis.eim.todotesting.Component");
 
-jQuery.sap.require("jquery.sap.storage");
-
 sap.ui.core.UIComponent.extend("fis.eim.todotesting.Component", {
 
 	metadata : {
@@ -17,7 +15,6 @@ sap.ui.core.UIComponent.extend("fis.eim.todotesting.Component", {
 		},
 
 		config: {
-			//resourceBundle: "i18n/messageBundle.properties"
 			favIcon: "pictures/favicon.ico"
 		},
 
@@ -51,12 +48,10 @@ sap.ui.core.UIComponent.extend("fis.eim.todotesting.Component", {
 			viewData : { component : this }
 		});
 
-		var model = new sap.ui.model.json.JSONModel();
-		var storage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-
-		if (storage.get("todos")) {
-			model.setData(storage.get("todos"));
-		}
+		var data = {
+			"Todos": []
+		};
+		var model = new sap.ui.model.json.JSONModel(data);
 
 		view.setModel(model);
 		sap.ui.getCore().setModel(model);

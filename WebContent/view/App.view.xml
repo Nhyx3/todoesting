@@ -4,10 +4,11 @@
     displayBlock="true"
     xmlns="sap.m">
     <App id="appView">
-        <Page
-            title="Todo testing" >
+        <Page title="Todo testing" >
             <content>
-                
+
+  
+
             </content>
         </Page>
     </App>
